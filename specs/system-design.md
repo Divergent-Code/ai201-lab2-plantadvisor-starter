@@ -33,8 +33,11 @@ agent.py  ───────────────────────�
   ├── lookup_plant(plant_name)
   │       └── tools.py  ──────────────────────────────────────►  plants.json
   │
-  └── get_seasonal_conditions(season)
-          └── tools.py  ──────────────────────────────────────►  seasons.json
+  ├── get_seasonal_conditions(season)
+  │       └── tools.py  ──────────────────────────────────────►  seasons.json
+  │
+  └── get_plant_list()
+          └── tools.py  ──────────────────────────────────────►  plants.json
 ```
 
 ---
@@ -70,10 +73,11 @@ Tool functions (`tools.py`) are pure data retrieval — they take arguments and 
 | Tool definitions (schemas) | `agent.py` | ✅ Complete | (built) |
 | Tool dispatch | `agent.py` | ✅ Complete | (built) |
 | System prompt | `agent.py` | ✅ Complete | (built) |
-| `lookup_plant()` | `tools.py` | 🔲 Student spec + implementation | Milestone 1 |
-| `get_seasonal_conditions()` | `tools.py` | 🔲 Student spec + implementation | Milestone 1 |
-| `run_agent()` | `agent.py` | 🔲 Student spec + implementation | Milestone 2 |
-| Graceful degradation | `tools.py` + `agent.py` | 🔲 Student analysis + improvement | Milestone 3 |
+| `lookup_plant()` | `tools.py` | ✅ Complete | Milestone 1 |
+| `get_seasonal_conditions()` | `tools.py` | ✅ Complete | Milestone 1 |
+| `run_agent()` | `agent.py` | ✅ Complete | Milestone 2 |
+| Graceful degradation | `tools.py` + `agent.py` | ✅ Complete | Milestone 3 |
+| `get_plant_list()` | `tools.py` | ✅ Complete | Milestone 3 |
 
 ---
 

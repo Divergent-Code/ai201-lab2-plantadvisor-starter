@@ -192,3 +192,43 @@ Returned season: summer
 ```
 yes
 ```
+
+---
+
+## Function 3: `get_plant_list()`
+
+### Input / Output Contract
+
+**Inputs:** None
+
+**Output:** `dict`
+
+A dictionary containing a list of all supported plants and their difficulty levels.
+
+```python
+{
+    "plants": [
+        {"name": "Pothos", "difficulty": "easy"},
+        {"name": "Snake Plant", "difficulty": "easy"},
+        ...
+    ]
+}
+```
+
+---
+
+### Design Decisions
+
+#### Return structure
+
+We extract just the `display_name` and `difficulty` for each plant so the LLM gets a concise list of options without being overwhelmed by the full care data for every single plant at once.
+
+```python
+plants = []
+for plant in _plant_db.values():
+    plants.append({
+        "name": plant["display_name"],
+        "difficulty": plant["difficulty"]
+    })
+return {"plants": plants}
+```

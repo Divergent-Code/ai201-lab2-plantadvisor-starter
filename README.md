@@ -1,8 +1,8 @@
-# Plant Advisor — AI201 Lab 2 Starter
+# Plant Advisor — AI201 Lab 2 Completed
 
 A conversational agent that helps users care for their houseplants. Ask it anything about a plant in its database and it will look up the care requirements, check the current seasonal context, and give you specific, grounded advice.
 
-The app is built and running. The agent isn't functional yet — that's the lab.
+The app is built and running. The agent has been fully implemented, including graceful fallback for unknown plants and a `get_plant_list` tool.
 
 ---
 
@@ -29,10 +29,10 @@ pip install -r requirements.txt
 **5. Run the app:**
 
 ```bash
-python app.py
+python run.py
 ```
 
-Plant Advisor will open in your browser. The chat interface works, but the agent returns a placeholder message until you complete Milestone 2.
+Plant Advisor will open in your browser and is fully functional.
 
 ---
 
@@ -41,9 +41,10 @@ Plant Advisor will open in your browser. The chat interface works, but the agent
 ```
 ai201-lab2-plantadvisor-starter/
 ├── app.py              ← Gradio UI (complete — do not modify)
+├── run.py              ← Run this script to launch the app (fixes Gradio version issues)
 ├── config.py           ← API keys and settings (complete)
-├── agent.py            ← Tool definitions + run_agent() to implement
-├── tools.py            ← lookup_plant() and get_seasonal_conditions() to implement
+├── agent.py            ← Tool definitions + run_agent() (completed)
+├── tools.py            ← lookup_plant(), get_seasonal_conditions(), get_plant_list() (completed)
 ├── data/
 │   ├── plants.json     ← 15-plant database (complete)
 │   └── seasons.json    ← Seasonal care data (complete)
@@ -54,6 +55,6 @@ ai201-lab2-plantadvisor-starter/
 └── requirements.txt
 ```
 
-## Where to Start
+## Documentation
 
-Open `specs/system-design.md`. Read the whole thing before opening any code file.
+All specifications (`system-design.md`, `tool-functions-spec.md`, `agent-loop-spec.md`) have been completed and verified as part of the implementation process.
