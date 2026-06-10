@@ -92,55 +92,7 @@ ul li:hover {
   padding-left: 0.5rem !important;
 }
 
-/* Chatbot Interface */
-.chatbot {
-  background: var(--color-parchment) !important;
-  border: 1px solid var(--color-sand) !important;
-  border-radius: 0 !important;
-  padding: 2rem !important;
-}
 
-/* Messages */
-.message-wrap {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 2rem !important;
-}
-
-.message-row {
-  display: flex !important;
-  flex-direction: row !important;
-}
-
-.message {
-  border-radius: 0 !important;
-  padding: 1.5rem 2rem !important;
-  font-size: 1.05rem !important;
-  line-height: 1.6 !important;
-  border: none !important;
-  box-shadow: none !important;
-  max-width: 85% !important;
-  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
-}
-
-/* User Message */
-.user {
-  background-color: transparent !important;
-  border-left: 2px solid var(--color-forest) !important;
-  align-self: flex-start !important;
-  color: var(--color-ink) !important;
-  font-family: var(--font-display) !important;
-  font-size: 1.25rem !important;
-  font-style: italic !important;
-}
-
-/* Bot Message */
-.bot {
-  background-color: var(--color-sage) !important;
-  color: var(--color-ink) !important;
-  align-self: flex-end !important;
-  border-top: 2px solid var(--color-sand) !important;
-}
 
 /* Input Area */
 .wrap.svelte-1puww9r {
