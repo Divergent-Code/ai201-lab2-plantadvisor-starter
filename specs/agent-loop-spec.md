@@ -122,7 +122,8 @@ for tool_call in assistant_message.tool_calls:
 *The loop should stop when: (a) the LLM returns a response with no tool calls, OR (b) the MAX_TOOL_ROUNDS limit is reached. Describe how you will detect each condition and what you will return in each case.*
 
 ```
-[your answer here]
+(a) The loop stops when `assistant_message.tool_calls` is falsy/None, at which point we return `assistant_message.content`. 
+(b) The loop stops when a counter tracking iterations reaches `MAX_TOOL_ROUNDS`. In this case, we return a graceful fallback message indicating the agent needed too much information at once.
 ```
 
 ---
@@ -132,7 +133,7 @@ for tool_call in assistant_message.tool_calls:
 *Once the loop exits because there are no more tool calls, how do you extract the text content from the response object? What field holds the string you should return?*
 
 ```
-[your answer here]
+The text response is extracted from `response.choices[0].message.content`.
 ```
 
 ---
