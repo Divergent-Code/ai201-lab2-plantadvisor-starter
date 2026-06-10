@@ -1,0 +1,190 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* Aesthetic Theme: Organic Editorial */
+:root {
+  /* Colors */
+  --color-parchment: #faf9f5;
+  --color-sage: #eef0eb;
+  --color-forest: #1e3b2b;
+  --color-ink: #2a2d2a;
+  --color-sand: #e6e2d6;
+
+  /* Typography */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--color-parchment) !important;
+  color: var(--color-ink) !important;
+  font-family: var(--font-body) !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display) !important;
+  color: var(--color-forest) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+}
+
+h1 {
+  font-size: 3rem !important;
+  margin-bottom: 0.5em !important;
+  border-bottom: 1px solid var(--color-sand) !important;
+  padding-bottom: 0.5em !important;
+}
+
+h3 {
+  font-size: 1.5rem !important;
+  margin-bottom: 1em !important;
+  font-style: italic !important;
+}
+
+/* Override Gradio Default Containers */
+.gradio-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 4rem 2rem !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Columns */
+.contain > div {
+  gap: 4rem !important;
+}
+
+/* Sidebar styling (First column) */
+.contain > div > div:first-child {
+  background-color: var(--color-sage) !important;
+  padding: 2.5rem !important;
+  border-radius: 0 !important;
+  border: 1px solid var(--color-sand) !important;
+  border-top: 4px solid var(--color-forest) !important;
+  box-shadow: 10px 10px 0px rgba(30, 59, 43, 0.05) !important;
+}
+
+/* The plant list */
+ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-top: 1.5rem !important;
+}
+
+ul li {
+  padding: 0.75rem 0 !important;
+  border-bottom: 1px solid rgba(42, 45, 42, 0.1) !important;
+  font-size: 0.95rem !important;
+  transition: all 0.3s ease !important;
+}
+
+ul li:last-child {
+  border-bottom: none !important;
+}
+
+ul li:hover {
+  color: var(--color-forest) !important;
+  padding-left: 0.5rem !important;
+}
+
+/* Chatbot Interface */
+.chatbot {
+  background: var(--color-parchment) !important;
+  border: 1px solid var(--color-sand) !important;
+  border-radius: 0 !important;
+  padding: 2rem !important;
+}
+
+/* Messages */
+.message-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+}
+
+.message-row {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.message {
+  border-radius: 0 !important;
+  padding: 1.5rem 2rem !important;
+  font-size: 1.05rem !important;
+  line-height: 1.6 !important;
+  border: none !important;
+  box-shadow: none !important;
+  max-width: 85% !important;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+/* User Message */
+.user {
+  background-color: transparent !important;
+  border-left: 2px solid var(--color-forest) !important;
+  align-self: flex-start !important;
+  color: var(--color-ink) !important;
+  font-family: var(--font-display) !important;
+  font-size: 1.25rem !important;
+  font-style: italic !important;
+}
+
+/* Bot Message */
+.bot {
+  background-color: var(--color-sage) !important;
+  color: var(--color-ink) !important;
+  align-self: flex-end !important;
+  border-top: 2px solid var(--color-sand) !important;
+}
+
+/* Input Area */
+.wrap.svelte-1puww9r {
+  border-radius: 0 !important;
+  border: 1px solid var(--color-sand) !important;
+  background: white !important;
+  box-shadow: none !important;
+  margin-top: 2rem !important;
+}
+
+textarea {
+  font-family: var(--font-body) !important;
+  font-size: 1rem !important;
+  color: var(--color-ink) !important;
+  padding: 1.5rem !important;
+  background: transparent !important;
+}
+
+/* Submit Button */
+button.primary {
+  background-color: var(--color-forest) !important;
+  color: var(--color-parchment) !important;
+  border-radius: 0 !important;
+  font-family: var(--font-body) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  font-size: 0.85rem !important;
+  padding: 1rem 2rem !important;
+  border: none !important;
+  transition: opacity 0.4s ease !important;
+}
+
+button.primary:hover {
+  opacity: 0.8 !important;
+}
+
+/* Motion */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
