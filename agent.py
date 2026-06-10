@@ -1,5 +1,5 @@
 import json
-from groq import Groq
+from groq import Groq, BadRequestError
 from config import GROQ_API_KEY, LLM_MODEL, MAX_TOOL_ROUNDS
 from tools import lookup_plant, get_seasonal_conditions
 
@@ -104,23 +104,41 @@ def run_agent(user_message: str, history: list) -> str:
     """
     Run the plant care agent for one user turn and return its response.
     """
+    # Handle both Gradio history formats:
+    #   Old format: list of [user_msg, assistant_msg] pairs
+    #   Gradio 5.x type="messages" format: list of {"role": ..., "content": ...} dicts
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
-    
-    for user_msg, assistant_msg in history:
-        messages.append({"role": "user", "content": user_msg})
-        if assistant_msg:
-            messages.append({"role": "assistant", "content": assistant_msg})
-            
+    for item in history:
+        if isinstance(item, dict):
+            # Gradio 5.x messages format — pass through directly, skipping tool/system roles
+            role = item.get("role")
+            content = item.get("content")
+            if role in ("user", "assistant") and content:
+                messages.append({"role": role, "content": content})
+        else:
+            # Old pair format: [user_msg, assistant_msg]
+            user_msg, assistant_msg = item
+            messages.append({"role": "user", "content": user_msg})
+            if assistant_msg:
+                messages.append({"role": "assistant", "content": assistant_msg})
+                
     messages.append({"role": "user", "content": user_message})
 
     rounds = 0
     while rounds < MAX_TOOL_ROUNDS:
-        response = _client.chat.completions.create(
-            model=LLM_MODEL,
-            messages=messages,
-            tools=TOOL_DEFINITIONS,
-            tool_choice="auto",
-        )
+        try:
+            response = _client.chat.completions.create(
+                model=LLM_MODEL,
+                messages=messages,
+                tools=TOOL_DEFINITIONS,
+                tool_choice="auto",
+            )
+        except BadRequestError as e:
+            print(f"  ✗ Groq BadRequestError: {e}")
+            return (
+                "I had trouble processing that request — the model generated an "
+                "invalid function call. Could you try rephrasing your question?"
+            )
         
         assistant_message = response.choices[0].message
         

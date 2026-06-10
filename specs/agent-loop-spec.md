@@ -145,20 +145,20 @@ The text response is extracted from `response.choices[0].message.content`.
 **Trace of a working agent turn (what tools were called and in what order):**
 
 ```
-Query: "How should I care for my calathea?"
-Round 1 tool call: [tool name, args]
-Round 2 tool call: [tool name, args] (if any)
-Final response: [brief description]
+Query: "How often should I water my snake plant in winter?"
+Round 1 tool call: lookup_plant({"plant_name": "snake plant"})
+Round 2 tool call: get_seasonal_conditions({"season": "winter"})
+Final response: Combined advice — water once a month or less in winter, check soil before watering, water only when fully dry.
 ```
 
 **What happens when you ask about a plant that isn't in the database?**
 
 ```
-[describe the behavior you observed]
+The agent called lookup_plant({"plant_name": "string of pearls"}) and received {"found": false}. It then correctly acknowledged the plant was not in its database, offered general succulent care advice, and recommended consulting a local nursery — without hallucinating specific care data.
 ```
 
 **One thing about the tool call API that surprised you:**
 
 ```
-[your answer here]
+The assistant message containing tool_calls must be appended to the messages list BEFORE the tool result messages. Getting this order wrong causes API errors. Also, Gradio 5.x passes history as a list of {"role": ..., "content": ...} dicts rather than the older [user_msg, assistant_msg] pair format.
 ```
