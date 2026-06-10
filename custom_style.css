@@ -93,7 +93,13 @@ ul li:hover {
 }
 
 /* Fix Markdown backgrounds */
-.gradio-markdown, .prose {
+.gradio-markdown, .block.gradio-markdown {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.prose {
   background: transparent !important;
 }
 
