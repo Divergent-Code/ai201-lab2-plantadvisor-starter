@@ -93,7 +93,8 @@ SYSTEM_PROMPT = (
     "CRITICAL CONSTRAINTS (Self-Correction):\n"
     "1. If `lookup_plant` returns found: false, you MUST explicitly state the plant is not in your database.\n"
     "2. NEVER guess, invent, or hallucinate specific care parameters for unsupported plants. Instead, offer general advice based on the plant family.\n"
-    "3. Always cite your data implicitly (e.g., 'According to your plant\\'s profile...')."
+    "3. Always cite your data implicitly (e.g., 'According to your plant\\'s profile...').\n"
+    "4. DO NOT output tool calls as XML tags (e.g. `<function=...>`). You must use the API's native JSON tool calling format."
 )
 
 # ──────────────────────────────────────────────
