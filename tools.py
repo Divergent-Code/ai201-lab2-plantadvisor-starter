@@ -98,3 +98,16 @@ def get_seasonal_conditions(season: str | None = None) -> dict:
     result = dict(_season_data[season_key])
     result["detected_season"] = detected
     return result
+
+
+def get_plant_list() -> dict:
+    """
+    Return a list of all plants supported by the database, including their difficulty level.
+    """
+    plants = []
+    for plant in _plant_db.values():
+        plants.append({
+            "name": plant["display_name"],
+            "difficulty": plant["difficulty"]
+        })
+    return {"plants": plants}
