@@ -91,17 +91,17 @@ Plant not found in the database. Please inform the user that this specific plant
 
 **Test: does `"devil's ivy"` return the pothos entry?**
 ```
-[yes / no — if no, describe what happened]
+yes
 ```
 
 **Test: does `"SNAKE PLANT"` return the snake plant entry?**
 ```
-[yes / no — if no, describe what happened]
+yes
 ```
 
 **One edge case you discovered while implementing:**
 ```
-[your answer here]
+Whitespace and casing must both be handled using .strip() and .lower() before attempting matches, otherwise user input will mismatch valid data.
 ```
 
 ---
@@ -183,12 +183,12 @@ The full season dict from `_season_data`, plus a `detected_season` boolean. Exam
 
 **Test: does calling with `season=None` return the correct season for the current month?**
 ```
-Current month: [month]
-Expected season: [season]
-Returned season: [season]
+Current month: 6
+Expected season: summer
+Returned season: summer
 ```
 
 **Test: does calling with `season="winter"` return winter data regardless of the current month?**
 ```
-[yes / no]
+yes
 ```
